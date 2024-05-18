@@ -55,14 +55,6 @@
       }
     },
     {
-      "type": "v2rayGeoIPDat",
-      "action": "output",
-      "args": {
-        "outputName": "geoip-asn.dat",
-        "wantedList": ["netflix", "telegram"]
-      }
-    },
-    {
       "type": "maxmindMMDB",
       "action": "output",
       "args": {
