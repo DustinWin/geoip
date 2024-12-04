@@ -6,15 +6,8 @@
       "args": {
         "country": "./geolite2/GeoLite2-Country-Locations-en.csv",
         "ipv4": "./geolite2/GeoLite2-Country-Blocks-IPv4.csv",
-        "ipv6": "./geolite2/GeoLite2-Country-Blocks-IPv6.csv"
-      }
-    },
-    {
-      "type": "cutter",
-      "action": "remove",
-      "args": {
-        "wantedList": ["cn"],
-        "onlyIPType": "ipv4"
+        "ipv6": "./geolite2/GeoLite2-Country-Blocks-IPv6.csv",
+        "wantedList": ["cn"]
       }
     },
     {
@@ -48,24 +41,8 @@
       "type": "text",
       "action": "add",
       "args": {
-        "name": "tor",
-        "uri": "https://check.torproject.org/torbulkexitlist"
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "cloudflare",
-        "uri": "https://www.cloudflare.com/ips-v4"
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "cloudflare",
-        "uri": "https://www.cloudflare.com/ips-v6"
+        "name": "netflix",
+        "uri": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_IP.txt"
       }
     },
     {
@@ -77,42 +54,10 @@
       }
     },
     {
-      "type": "json",
+      "type": "text",
       "action": "add",
       "args": {
-        "name": "google",
-        "uri": "https://www.gstatic.com/ipranges/goog.json",
-        "jsonPath": ["prefixes.#.ipv4Prefix", "prefixes.#.ipv6Prefix"]
-      }
-    },
-    {
-      "type": "json",
-      "action": "add",
-      "args": {
-        "name": "google",
-        "uri": "https://www.gstatic.com/ipranges/cloud.json",
-        "jsonPath": ["prefixes.#.ipv4Prefix", "prefixes.#.ipv6Prefix"]
-      }
-    },
-    {
-      "type": "json",
-      "action": "add",
-      "args": {
-        "name": "fastly",
-        "uri": "https://api.fastly.com/public-ip-list",
-        "jsonPath": ["addresses", "ipv6_addresses"]
-      }
-    },
-    {
-      "type": "json",
-      "action": "add",
-      "args": {
-        "name": "cloudfront",
-        "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-        "jsonPath": [
-          "prefixes.#(service==\"CLOUDFRONT\")#.ip_prefix",
-          "ipv6_prefixes.#(service==\"CLOUDFRONT\")#.ipv6_prefix"
-        ]
+        "inputDir": "./data"
       }
     },
     {
@@ -122,55 +67,8 @@
         "ipv4": "./geolite2/GeoLite2-ASN-Blocks-IPv4.csv",
         "ipv6": "./geolite2/GeoLite2-ASN-Blocks-IPv6.csv",
         "wantedList": {
-          "cloudflare": [
-            "AS395747",
-            "AS394536",
-            "AS209242",
-            "AS203898",
-            "AS202623",
-            "AS14789",
-            "AS139242",
-            "AS133877",
-            "AS13335",
-            "AS132892"
-          ],
-          "facebook": ["AS63293", "AS54115", "AS32934"],
-          "fastly": ["AS54113", "AS394192"],
-          "google": [
-            "AS6432",
-            "AS55023",
-            "AS45566",
-            "AS43515",
-            "AS41264",
-            "AS40873",
-            "AS396982",
-            "AS395973",
-            "AS394699",
-            "AS394639",
-            "AS394507",
-            "AS36987",
-            "AS36492",
-            "AS36385",
-            "AS36384",
-            "AS36040",
-            "AS36039",
-            "AS26910",
-            "AS26684",
-            "AS22859",
-            "AS22577",
-            "AS19527",
-            "AS19448",
-            "AS19425",
-            "AS16591",
-            "AS16550",
-            "AS15169",
-            "AS13949",
-            "AS139190",
-            "AS139070"
-          ],
           "netflix": ["AS55095", "AS40027", "AS394406", "AS2906"],
-          "telegram": ["AS62041", "AS62014", "AS59930", "AS44907", "AS211157"],
-          "twitter": ["AS8945", "AS63179", "AS54888", "AS35995", "AS13414"]
+          "telegram": ["AS62041", "AS62014", "AS59930", "AS44907", "AS211157"]
         }
       }
     },
@@ -185,7 +83,8 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "geoip.dat"
+        "outputName": "geoip.dat",
+        "wantedList": ["netflix", "telegram", "private", "cn"]
       }
     },
     {
@@ -193,36 +92,8 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "geoip-only-cn-private.dat",
-        "wantedList": ["cn", "private"]
-      }
-    },
-    {
-      "type": "v2rayGeoIPDat",
-      "action": "output",
-      "args": {
-        "outputDir": "./output",
-        "outputName": "geoip-asn.dat",
-        "wantedList": [
-          "cloudflare",
-          "cloudfront",
-          "facebook",
-          "fastly",
-          "google",
-          "netflix",
-          "telegram",
-          "twitter",
-          "tor"
-        ]
-      }
-    },
-    {
-      "type": "v2rayGeoIPDat",
-      "action": "output",
-      "args": {
-        "outputDir": "./output",
-        "oneFilePerList": true,
-        "wantedList": ["cn", "private"]
+        "outputName": "geoip-lite.dat",
+        "wantedList": ["telegram", "private", "cn"]
       }
     },
     {
@@ -237,21 +108,19 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
+        "outputName": "Country-lite.mmdb",
+        "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
+        "wantedList": ["telegram", "private", "cn"]
+      }
+    },
+    {
+      "type": "maxmindMMDB",
+      "action": "output",
+      "args": {
+        "outputDir": "./output",
         "outputName": "Country.mmdb",
         "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
-        "overwriteList": [
-          "cn",
-          "cloudflare",
-          "cloudfront",
-          "facebook",
-          "fastly",
-          "google",
-          "netflix",
-          "telegram",
-          "twitter",
-          "tor",
-          "private"
-        ]
+        "wantedList": ["netflix", "telegram", "private", "cn"]
       }
     },
     {
@@ -259,97 +128,17 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "Country-without-asn.mmdb",
-        "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
-        "overwriteList": ["cn", "private"],
-        "excludedList": [
-          "cloudflare",
-          "cloudfront",
-          "facebook",
-          "fastly",
-          "google",
-          "netflix",
-          "telegram",
-          "twitter",
-          "tor"
-        ]
-      }
-    },
-    {
-      "type": "maxmindMMDB",
-      "action": "output",
-      "args": {
-        "outputDir": "./output",
-        "outputName": "Country-only-cn-private.mmdb",
-        "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
-        "wantedList": ["cn", "private"]
-      }
-    },
-    {
-      "type": "maxmindMMDB",
-      "action": "output",
-      "args": {
-        "outputDir": "./output",
-        "outputName": "Country-asn.mmdb",
-        "wantedList": [
-          "cloudflare",
-          "cloudfront",
-          "facebook",
-          "fastly",
-          "google",
-          "netflix",
-          "telegram",
-          "twitter",
-          "tor"
-        ]
-      }
-    },
-    {
-      "type": "singboxSRS",
-      "action": "output"
-    },
-    {
-      "type": "mihomoMRS",
-      "action": "output"
-    },
-    {
-      "type": "text",
-      "action": "output"
-    },
-    {
-      "type": "text",
-      "action": "output",
-      "args": {
-        "outputDir": "./output/nginx/allow",
-        "outputExtension": ".conf",
-        "addPrefixInLine": "allow ",
-        "addSuffixInLine": ";"
+        "outputName": "Country-ASN.mmdb",
+        "wantedList": ["netflix", "telegram"]
       }
     },
     {
       "type": "text",
-      "action": "output",
-      "args": {
-        "outputDir": "./output/nginx/deny",
-        "outputExtension": ".conf",
-        "addPrefixInLine": "deny ",
-        "addSuffixInLine": ";"
-      }
+      "action": "output"
     },
     {
       "type": "clashRuleSetClassical",
       "action": "output"
-    },
-    {
-      "type": "clashRuleSet",
-      "action": "output"
-    },
-    {
-      "type": "surgeRuleSet",
-      "action": "output",
-      "args": {
-        "addSuffixInLine": ",no-resolve"
-      }
     }
   ]
 }
