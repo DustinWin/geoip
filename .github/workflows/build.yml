@@ -124,7 +124,8 @@ jobs:
           tag: ips
           overwrite: true
           body: |
-            Clash rule-set 规则集文件和 [ShellCrash](https://github.com/juewuy/ShellCrash) 中 CN_IP 绕过内核所需文件
+            Clash rule-set 规则集文件，规则类型包含 `IP-ASN`、`IP-CIDR` 和 `IP-CIDR6`
+            [ShellCrash](https://github.com/juewuy/ShellCrash) 中 CN_IP 绕过内核所需文件
             文件更新于 ${{ env.update_version }}
           file_glob: true
           file: ./ips/*
