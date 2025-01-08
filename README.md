@@ -25,89 +25,89 @@
     <td rowspan="4" align="center"><a href="https://github.com/Loyalsoldier/geoip/tree/release/text">点此查看</a></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-all.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip-all.dat">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-all.dat">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-all.dat">点此下载</a></td>
   </tr>
   <tr>
     <td>Country-all.mmdb</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/Country-all.mmdb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/Country-all.mmdb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-all.mmdb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-all.mmdb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip-all.metadb</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-all.metadb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip-all.metadb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-all.metadb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-all.metadb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip-all.db</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/sing-box/geoip-all.db">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@sing-box/geoip-all.db">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/sing-box/geoip-all.db">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/sing-box/geoip-all.db">点此下载</a></td>
   </tr>
   <tr>
     <td>Country-ASN-all.mmdb</td>
     <td><code>cloudflare</code></del>、<code>cloudfront</code>、<code>facebook</code>、<code>fastly</code>、<code>google</code>、<code>netflix</code>、<code>telegram</code> 和 <code>twitter</code>，具体可<a href="https://github.com/Loyalsoldier/geoip/blob/master/asn.csv">点此查看</a></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN-all.mmdb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/Country-ASN-all.mmdb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN-all.mmdb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN-all.mmdb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip.dat</td>
     <td rowspan="4"><code>netflix</code>、<code>telegram</code>、<code>private</code> 和 <code>cn</code></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip.dat">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.dat">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.dat">点此下载</a></td>
   </tr>
   <tr>
     <td>Country.mmdb</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/Country.mmdb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/Country.mmdb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/Country.mmdb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/Country.mmdb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip.metadb</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.metadb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip.metadb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.metadb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.metadb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip.db</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/sing-box/geoip.db">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@sing-box/geoip.db">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/sing-box/geoip.db">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/sing-box/geoip.db">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip-lite.dat</td>
     <td rowspan="4"><del><code>netflix</code></del>、<code>telegram</code>、<code>private</code> 和 <code>cn</code></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip-lite.dat">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.dat">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.dat">点此下载</a></td>
   </tr>
   <tr>
     <td>Country-lite.mmdb</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/Country-lite.mmdb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/Country-lite.mmdb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-lite.mmdb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-lite.mmdb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip-lite.metadb</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.metadb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip-lite.metadb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.metadb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.metadb">点此下载</a></td>
   </tr>
   <tr>
     <td>geoip-lite.db</td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/sing-box/geoip-lite.db">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@sing-box/geoip-lite.db">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/sing-box/geoip-lite.db">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/sing-box/geoip-lite.db">点此下载</a></td>
   </tr>
   <tr>
     <td>Country-ASN.mmdb</td>
     <td><code>netflix</code>、<code>telegram</code>、<del><code>private</code> 和 <code>cn</code></del>，具体可<a href="https://github.com/DustinWin/geoip/blob/master/asn.csv">点此查看</a></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN.mmdb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/Country-ASN.mmdb">点此下载</a></td>
-    <td><a href="https://ghp.ci/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN.mmdb">点此下载</a></td>
+    <td><a href="https://ghgo.xyz/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN.mmdb">点此下载</a></td>
   </tr>
 </table>
 
