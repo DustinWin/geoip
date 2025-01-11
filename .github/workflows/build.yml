@@ -139,7 +139,7 @@ jobs:
           git checkout -b ips
           git add . && git commit -m "规则集文件和 CNIP 绕过内核文件更新于 ${update_version}"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f -u origin ips
+          git push -f origin ips
 
       - name: Release and upload `mihomo` assets
         uses: svenstaro/upload-release-action@v2
@@ -154,6 +154,17 @@ jobs:
           file_glob: true
           file: ./mihomo/*
 
+      - name: Commit and push `mihomo` branch
+        run: |
+          cd ./mihomo/ || exit 1
+          git init
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git checkout -b mihomo
+          git add . && git commit -m "mihomo geodata 文件更新于 ${update_version}"
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin mihomo
+
       - name: Release and upload `sing-box` assets
         uses: svenstaro/upload-release-action@v2
         with:
@@ -166,6 +177,17 @@ jobs:
             geodata 文件更新于 ${{ env.update_version }}
           file_glob: true
           file: ./sing-box/*
+
+      - name: Commit and push `sing-box` branch
+        run: |
+          cd ./sing-box/ || exit 1
+          git init
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git checkout -b sing-box
+          git add . && git commit -m "sing-box geodata 文件更新于 ${update_version}"
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin sing-box
 
       - name: Purge jsDelivr CDN
         run: |
