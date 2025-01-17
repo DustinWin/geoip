@@ -1,6 +1,6 @@
 module geoip
 
-go 1.23.4
+go 1.23.5
 
 require (
 	github.com/Loyalsoldier/geoip v0.0.0-20241220112809-724fbfc98534
@@ -11,7 +11,7 @@ require (
 	github.com/tailscale/hujson v0.0.0-20241010212012-29efb4a0184b
 	github.com/tidwall/gjson v1.18.0
 	go4.org/netipx v0.0.0-20231129151722-fdeea329fbba
-	google.golang.org/protobuf v1.36.2
+	google.golang.org/protobuf v1.36.3
 	gopkg.in/yaml.v2 v2.4.0
 )
 
