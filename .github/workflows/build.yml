@@ -29,20 +29,13 @@ jobs:
       - name: Set variables
         run: |
           echo "update_version=$(date -d '+8 hours' +%Y-%m-%d)" >> ${GITHUB_ENV}
-          echo "private=https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt" >> $GITHUB_ENV
           echo "cn=http://ftp.apnic.net/stats/apnic/delegated-apnic-latest" >> $GITHUB_ENV
           echo "cn_asn=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN.list" >> $GITHUB_ENV
         shell: bash
 
-      - name: Generate private
-        run: |
-          mkdir -p ./data/
-          curl -sSL ${private} | grep -E '\/[^A-Za-z]+\/' | awk -F'[/:]' '{print $4}' >> ./data/private
-          curl -sSL ${private} | grep '::' | awk -F'[][]' '{print $2}' >> ./data/private
-
       - name: Generate cn and cn_ip
         run: |
-          mkdir -p ./ips/
+          mkdir -p ./ips/ ./data/
           curl -sSL ${cn} | awk -F '|' '/CN/&&/ipv4/ {print $4 "/" 32-log($5)/log(2)}' > ./ips/cn_ipv4.txt
           cat ./ips/cn_ipv4.txt >> ./data/cn
           curl -sSL ${cn} | awk -F '|' '/CN/&&/ipv6/ {print $4 "/" $5}' > ./ips/cn_ipv6.txt
