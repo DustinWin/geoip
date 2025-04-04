@@ -1,9 +1,9 @@
 module geoip
 
-go 1.24.1
+go 1.24.2
 
 require (
-	github.com/Loyalsoldier/geoip v0.0.0-20250201072723-fdab3dd2dea5
+	github.com/Loyalsoldier/geoip v0.0.0-20250328140756-d1eca9ff0658
 	github.com/maxmind/mmdbwriter v1.0.0
 	github.com/oschwald/geoip2-golang v1.11.0
 	github.com/oschwald/maxminddb-golang v1.13.1
@@ -11,7 +11,7 @@ require (
 	github.com/tailscale/hujson v0.0.0-20250226034555-ec1d1c113d33
 	github.com/tidwall/gjson v1.18.0
 	go4.org/netipx v0.0.0-20231129151722-fdeea329fbba
-	google.golang.org/protobuf v1.36.5
+	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v2 v2.4.0
 )
 
