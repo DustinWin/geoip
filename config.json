@@ -84,7 +84,7 @@
       "args": {
         "outputDir": "./output",
         "outputName": "geoip.dat",
-        "wantedList": ["private", "cn", "netflix", "telegram"]
+        "wantedList": ["private", "cn", "media", "telegram"]
       }
     },
     {
@@ -108,9 +108,9 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "Country-lite.mmdb",
+        "outputName": "Country.mmdb",
         "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
-        "wantedList": ["private", "cn", "telegram"]
+        "wantedList": ["private", "cn", "media", "telegram"]
       }
     },
     {
@@ -118,9 +118,9 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "Country.mmdb",
+        "outputName": "Country-lite.mmdb",
         "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
-        "wantedList": ["private", "cn", "netflix", "telegram"]
+        "wantedList": ["private", "cn", "telegram"]
       }
     },
     {

@@ -8,8 +8,9 @@
 ① 每天凌晨 2 点（北京时间 UTC+8）自动构建，根据 [Loyalsoldier/geoip](https://github.com/Loyalsoldier/geoip) 进行深度定制，可点击查看包含的 [IP 段列表](https://github.com/DustinWin/geoip/tree/ips)  
 ② `geoip,private,🔒 私有网络` & `privateip.list` 源采用 [DustinWin/geoip/config.json](https://github.com/DustinWin/geoip/blob/master/config.json) 中的 `input.type:private`  
 ③ `geoip,cn,🀄️ 直连 IP` & `cnip.list` 源采用 [GeoLite2-Country-CSV/CN](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)、[17mon/china_ip_list](https://github.com/17mon/china_ip_list)、[gaoyifan/china-operator-ip](https://github.com/gaoyifan/china-operator-ip)、[APNIC/CN](http://ftp.apnic.net/stats/apnic/delegated-apnic-latest) 和 [blackmatrix7/ios_rule_script/ChinaASN](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Surge/ChinaASN) 组合  
-④ `geoip,netflix,🎥 奈飞视频` & `netflixip.list` 源采用 [GeoLite2-ASN-CSV/Netflix](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [blackmatrix7/ios_rule_script/Netflix](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/Netflix)（Netflix_IP.txt）组合  
-⑤ `geoip,telegram,📲 电报消息` & `telegramip.list` 源采用 [GeoLite2-ASN-CSV/Telegram](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [Telegram IP 段](https://core.telegram.org/resources/cidr.txt)组合
+④ `netflixip.list` 源采用 [GeoLite2-ASN-CSV/Netflix](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [blackmatrix7/ios_rule_script/Netflix](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/Netflix)（Netflix_IP.txt）组合  
+⑤ `geoip,media,🌍 国外媒体` & `mediaip.list` 源采用 [blackmatrix7/ios_rule_script/GlobalMedia](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/GlobalMedia)（仅 IP）  
+⑥ `geoip,telegram,📲 电报消息` & `telegramip.list` 源采用 [GeoLite2-ASN-CSV/Telegram](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [Telegram IP 段](https://core.telegram.org/resources/cidr.txt)组合
 # 二、 文件下载
 **规则集文件包含的规则和下载地址对应关系如下表：**
 <table>
@@ -54,7 +55,7 @@
   </tr>
   <tr>
     <td>geoip.dat</td>
-    <td rowspan="4"><code>private</code>、<code>cn</code>、<code>netflix</code> 和 <code>telegram</code></td>
+    <td rowspan="4"><code>private</code>、<code>cn</code>、<code>media</code> 和 <code>telegram</code></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip.dat">点此下载</a></td>
     <td><a href="https://ghfast.top/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip.dat">点此下载</a></td>
@@ -79,7 +80,7 @@
   </tr>
   <tr>
     <td>geoip-lite.dat</td>
-    <td rowspan="4"><code>private</code>、<code>cn</code>、<del><code>netflix</code></del> 和 <code>telegram</code></td>
+    <td rowspan="4"><code>private</code>、<code>cn</code>、<del><code>media</code></del> 和 <code>telegram</code></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/geoip-lite.dat">点此下载</a></td>
     <td><a href="https://ghfast.top/https://github.com/DustinWin/geoip/releases/download/mihomo/geoip-lite.dat">点此下载</a></td>
@@ -104,7 +105,7 @@
   </tr>
   <tr>
     <td>Country-ASN.mmdb</td>
-    <td><del><code>private</code></del>、<del><code>cn</code></del>、<code>netflix</code> 和 <code>telegram</code>，具体可<a href="https://github.com/DustinWin/geoip/blob/master/asn.csv">点此查看</a></td>
+    <td><code>netflix</code> 和 <code>telegram</code>，具体可<a href="https://github.com/DustinWin/geoip/blob/master/asn.csv">点此查看</a></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN.mmdb">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo/Country-ASN.mmdb">点此下载</a></td>
     <td><a href="https://ghfast.top/https://github.com/DustinWin/geoip/releases/download/mihomo/Country-ASN.mmdb">点此下载</a></td>

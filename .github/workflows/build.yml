@@ -29,13 +29,19 @@ jobs:
       - name: Set variables
         run: |
           echo "update_version=$(date -d '+8 hours' +%Y-%m-%d)" >> ${GITHUB_ENV}
+          echo "media=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.list" >> ${GITHUB_ENV}
           echo "cn=http://ftp.apnic.net/stats/apnic/delegated-apnic-latest" >> $GITHUB_ENV
           echo "cn_asn=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN.list" >> $GITHUB_ENV
         shell: bash
 
+      - name: Gererate media
+        run: |
+          mkdir -p ./data/
+          curl -sSL ${media} | grep '^IP-CIDR' | awk -F',' '{print $2}' > ./data/media
+
       - name: Generate cn and cn_ip
         run: |
-          mkdir -p ./ips/ ./data/
+          mkdir -p ./ips/
           curl -sSL ${cn} | awk -F '|' '/CN/&&/ipv4/ {print $4 "/" 32-log($5)/log(2)}' > ./ips/cn_ipv4.txt
           cat ./ips/cn_ipv4.txt >> ./data/cn
           curl -sSL ${cn} | awk -F '|' '/CN/&&/ipv6/ {print $4 "/" $5}' > ./ips/cn_ipv6.txt
