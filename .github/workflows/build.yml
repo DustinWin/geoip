@@ -30,6 +30,7 @@ jobs:
         run: |
           echo "update_version=$(date -d '+8 hours' +%Y-%m-%d)" >> ${GITHUB_ENV}
           echo "media=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.list" >> ${GITHUB_ENV}
+          echo "games=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list" >> ${GITHUB_ENV}
           echo "cn=http://ftp.apnic.net/stats/apnic/delegated-apnic-latest" >> $GITHUB_ENV
           echo "cn_asn=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN.list" >> $GITHUB_ENV
         shell: bash
@@ -38,6 +39,10 @@ jobs:
         run: |
           mkdir -p ./data/
           curl -sSL ${media} | grep '^IP-CIDR' | awk -F',' '{print $2}' > ./data/media
+
+      - name: Gererate games
+        run: |
+          curl -sSL ${games} | grep '^IP-CIDR' | awk -F',' '{print $2}' > ./data/games
 
       - name: Generate cn and cn_ip
         run: |

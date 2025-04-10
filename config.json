@@ -84,7 +84,7 @@
       "args": {
         "outputDir": "./output",
         "outputName": "geoip.dat",
-        "wantedList": ["private", "cn", "media", "telegram"]
+        "wantedList": ["private", "cn", "media", "games", "telegram"]
       }
     },
     {
@@ -110,7 +110,7 @@
         "outputDir": "./output",
         "outputName": "Country.mmdb",
         "sourceMMDBURI": "./output/GeoLite2-Country.mmdb",
-        "wantedList": ["private", "cn", "media", "telegram"]
+        "wantedList": ["private", "cn", "media", "games", "telegram"]
       }
     },
     {
