@@ -10,9 +10,7 @@ import (
 
 	"github.com/Loyalsoldier/geoip/lib"
 	"github.com/Loyalsoldier/geoip/plugin/maxmind"
-	"github.com/Loyalsoldier/geoip/plugin/mihomo"
 	"github.com/Loyalsoldier/geoip/plugin/plaintext"
-	"github.com/Loyalsoldier/geoip/plugin/singbox"
 	"github.com/Loyalsoldier/geoip/plugin/special"
 	"github.com/Loyalsoldier/geoip/plugin/v2ray"
 	"github.com/spf13/cobra"
@@ -24,8 +22,6 @@ var supportedInputFormats = map[string]bool{
 	strings.ToLower("dbipCountryMMDB"):       true,
 	strings.ToLower("ipinfoCountryMMDB"):     true,
 	strings.ToLower("maxmindMMDB"):           true,
-	strings.ToLower("mihomoMRS"):             true,
-	strings.ToLower("singboxSRS"):            true,
 	strings.ToLower("surgeRuleSet"):          true,
 	strings.ToLower("text"):                  true,
 	strings.ToLower("v2rayGeoIPDat"):         true,
@@ -34,7 +30,7 @@ var supportedInputFormats = map[string]bool{
 func init() {
 	rootCmd.AddCommand(lookupCmd)
 
-	lookupCmd.Flags().StringP("format", "f", "", "(Required) The input format. Available formats: text, v2rayGeoIPDat, maxmindMMDB, dbipCountryMMDB, ipinfoCountryMMDB, mihomoMRS, singboxSRS, clashRuleSet, clashRuleSetClassical, surgeRuleSet")
+	lookupCmd.Flags().StringP("format", "f", "", "(Required) The input format. Available formats: text, v2rayGeoIPDat, maxmindMMDB, dbipCountryMMDB, ipinfoCountryMMDB, clashRuleSet, clashRuleSetClassical, surgeRuleSet")
 	lookupCmd.Flags().StringP("uri", "u", "", "URI of the input file, support both local file path and remote HTTP(S) URL. (Cannot be used with \"dir\" flag)")
 	lookupCmd.Flags().StringP("dir", "d", "", "Path to the input directory. The filename without extension will be as the name of the list. (Cannot be used with \"uri\" flag)")
 	lookupCmd.Flags().StringSliceP("searchlist", "l", []string{}, "The lists to search from, separated by comma")
@@ -184,26 +180,6 @@ func getInputForLookup(format, name, uri, dir string) lib.InputConverter {
 			Action:      lib.ActionAdd,
 			Description: maxmind.DescIPInfoCountryMMDBIn,
 			URI:         uri,
-		}
-
-	case strings.ToLower(mihomo.TypeMRSIn):
-		input = &mihomo.MRSIn{
-			Type:        mihomo.TypeMRSIn,
-			Action:      lib.ActionAdd,
-			Description: mihomo.DescMRSIn,
-			Name:        name,
-			URI:         uri,
-			InputDir:    dir,
-		}
-
-	case strings.ToLower(singbox.TypeSRSIn):
-		input = &singbox.SRSIn{
-			Type:        singbox.TypeSRSIn,
-			Action:      lib.ActionAdd,
-			Description: singbox.DescSRSIn,
-			Name:        name,
-			URI:         uri,
-			InputDir:    dir,
 		}
 
 	case strings.ToLower(v2ray.TypeGeoIPDatIn):
