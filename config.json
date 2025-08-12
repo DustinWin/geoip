@@ -135,10 +135,6 @@
     {
       "type": "text",
       "action": "output"
-    },
-    {
-      "type": "clashRuleSetClassical",
-      "action": "output"
     }
   ]
 }
