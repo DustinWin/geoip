@@ -71,8 +71,8 @@
         "ipv4": "./geolite2/GeoLite2-ASN-Blocks-IPv4.csv",
         "ipv6": "./geolite2/GeoLite2-ASN-Blocks-IPv6.csv",
         "wantedList": {
-          "netflix": ["AS55095", "AS40027", "AS394406", "AS2906"],
-          "telegram": ["AS62041", "AS62014", "AS59930", "AS44907", "AS211157"]
+          "netflix": ["AS2906", "AS394406", "AS40027", "AS55095"],
+          "telegram": ["AS211157", "AS44907", "AS59930", "AS62014", "AS62041"]
         }
       }
     }
@@ -134,10 +134,6 @@
     },
     {
       "type": "text",
-      "action": "output"
-    },
-    {
-      "type": "clashRuleSetClassical",
       "action": "output"
     }
   ]

@@ -115,12 +115,14 @@ jobs:
         run: |
           mkdir -p ./tmp/
           mv -f ./output/Country*.mmdb ./mihomo/
-          curl -sSL ${cn_asn} | grep -v '#' | sed 's/,no-resolve$//' > ./tmp/cn.list
-          for file in $(ls ./output/clash/classical/ | sed 's/\..*//'); do
-            grep -v 'payload:' "./output/clash/classical/${file}.txt" | sed 's/^  - //' >> "./tmp/${file}.list"
-            grep "\"${file}\":" ./config.json | awk -F'[][]' '{print $2}' | awk -F', ' '{for(i=1;i<=NF;i++){gsub(/"/, "", $i); gsub(/AS/, "", $i); print "IP-ASN,"$i}}' >> "./tmp/${file}.list"
-            sort --ignore-case -u "./tmp/${file}.list" > "./ips/${file}ip.list"
+          for file in ./output/text/*.txt; do
+            mv -f "${file}" "./ips/${file%.txt}ip.txt"
           done
+
+          curl -sSL ${cn_asn} | grep 'IP-ASN,' | awk -F',' '{print $2}' | sort --ignore-case > ./ips/cn-asn.txt
+          cat ./config.json | grep '\"netflix\":' | grep -o 'AS[0-9]\+' | sed 's/^AS//' | sort --ignore-case > ./ips/netflix-asn.txt
+          cat ./config.json | grep '\"telegram\":' | grep -o 'AS[0-9]\+' | sed 's/^AS//' | sort --ignore-case > ./ips/telegram-asn.txt
+
           rm -rf ./tmp* ./output*
 
       - name: Release and upload `ips` assets
@@ -131,7 +133,7 @@ jobs:
           tag: ips
           overwrite: true
           body: |
-            [mihomo](https://github.com/MetaCubeX/mihomo) rule-set 规则集文件，规则类型包含 `IP-ASN`、`IP-CIDR` 和 `IP-CIDR6`
+            供下游项目 [DustinWin/ruleset_geodata](https://github.com/DustinWin/ruleset_geodata) 使用的 IP 数据源文件
             [ShellCrash](https://github.com/juewuy/ShellCrash) 中 CN_IP 绕过内核所需文件
             文件更新于 ${{ env.update_version }}
           file_glob: true
@@ -144,7 +146,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git checkout -b ips
-          git add . && git commit -m "规则集文件和 CNIP 绕过内核文件更新于 ${update_version}"
+          git add . && git commit -m "IP 数据源文件和 CNIP 绕过内核文件更新于 ${update_version}"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f origin ips
 
