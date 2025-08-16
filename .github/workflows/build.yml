@@ -102,19 +102,19 @@ jobs:
 
       - name: Move files
         run: |
-          mkdir -p ./mihomo/ ./sing-box/
+          mkdir -p ./mihomo-geodata/ ./sing-box-geodata/
           cd ./output/ || exit 1
           for file in $(ls *.dat *.metadb); do
-            install -Dp "./${file}" ../mihomo/
+            install -Dp "./${file}" ../mihomo-geodata/
           done
           for file in $(ls *.db); do
-            install -Dp "./${file}" ../sing-box/
+            install -Dp "./${file}" ../sing-box-geodata/
           done
 
       - name: Move and generate files to branchs
         run: |
           mkdir -p ./tmp/
-          mv -f ./output/Country*.mmdb ./mihomo/
+          mv -f ./output/Country*.mmdb ./mihomo-geodata/
           for file in $(ls ./output/clash/classical/ | sed 's/\..*//'); do
             cat "./output/clash/classical/${file}.txt" | perl -ne '/^\s*-\s+(.*)/ && print "$1\n"' > "./tmp/temp-${file}.list"
             sort --ignore-case "./tmp/temp-${file}.list" > "./ips/${file}ip.list"
@@ -151,53 +151,53 @@ jobs:
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f origin ips
 
-      - name: Release and upload `mihomo` assets
+      - name: Release and upload `mihomo-geodata` assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          release_name: mihomo
-          tag: mihomo
+          release_name: mihomo-geodata
+          tag: mihomo-geodata
           overwrite: true
           body: |
             [mihomo 内核](https://github.com/MetaCubeX/mihomo) geodata 文件
             geodata 文件更新于 ${{ env.update_version }}
           file_glob: true
-          file: ./mihomo/*
+          file: ./mihomo-geodata/*
 
-      - name: Commit and push `mihomo` branch
+      - name: Commit and push `mihomo-geodata` branch
         run: |
-          cd ./mihomo/ || exit 1
+          cd ./mihomo-geodata/ || exit 1
           git init
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git checkout -b mihomo
+          git checkout -b mihomo-geodata
           git add . && git commit -m "mihomo 内核 geodata 文件更新于 ${update_version}"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f origin mihomo
+          git push -f origin mihomo-geodata
 
-      - name: Release and upload `sing-box` assets
+      - name: Release and upload `sing-box-geodata` assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          release_name: sing-box
-          tag: sing-box
+          release_name: sing-box-geodata
+          tag: sing-box-geodata
           overwrite: true
           body: |
             [sing-box 内核](https://github.com/SagerNet/sing-box) geodata 文件
             geodata 文件更新于 ${{ env.update_version }}
           file_glob: true
-          file: ./sing-box/*
+          file: ./sing-box-geodata/*
 
-      - name: Commit and push `sing-box` branch
+      - name: Commit and push `sing-box-geodata` branch
         run: |
-          cd ./sing-box/ || exit 1
+          cd ./sing-box-geodata/ || exit 1
           git init
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git checkout -b sing-box
+          git checkout -b sing-box-geodata
           git add . && git commit -m "sing-box 内核 geodata 文件更新于 ${update_version}"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f origin sing-box
+          git push -f origin sing-box-geodata
 
       - name: Purge jsDelivr CDN
         run: |
@@ -205,13 +205,13 @@ jobs:
           for file in $(ls); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@ips/${file}"
           done
-          cd ../mihomo/ || exit 1
+          cd ../mihomo-geodata/ || exit 1
           for file in $(ls); do
-            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@mihomo/${file}"
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@mihomo-geodata/${file}"
           done
-          cd ../sing-box/ || exit 1
+          cd ../sing-box-geodata/ || exit 1
           for file in $(ls); do
-            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@sing-box/${file}"
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@sing-box-geodata/${file}"
           done
 
       - name: Delete old workflow runs
