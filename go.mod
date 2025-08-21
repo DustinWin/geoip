@@ -8,7 +8,7 @@ require (
 	github.com/maxmind/mmdbwriter v1.0.0
 	github.com/oschwald/geoip2-golang v1.13.0
 	github.com/oschwald/maxminddb-golang v1.13.1
-	github.com/sagernet/sing-box v1.12.2
+	github.com/sagernet/sing-box v1.12.3
 	github.com/spf13/cobra v1.9.1
 	github.com/tailscale/hujson v0.0.0-20250605163823-992244df8c5a
 	github.com/tidwall/gjson v1.18.0
