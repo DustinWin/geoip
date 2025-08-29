@@ -40,11 +40,11 @@ jobs:
       - name: Gererate media
         run: |
           mkdir -p ./data/
-          curl -sSL ${media} | grep '^IP-CIDR' | awk -F ',' '{print $2}' > ./data/media
+          curl -sSL ${media} | perl -ne '/^(IP-CIDR.*),([^,]+),/ && print "$2\n"' > ./data/media
 
       - name: Gererate games
         run: |
-          curl -sSL ${games} | grep '^IP-CIDR' | awk -F ',' '{print $2}' > ./data/games
+          curl -sSL ${games} | perl -ne '/^(IP-CIDR.*),([^,]+),/ && print "$2\n"' > ./data/games
 
       - name: Generate cn and cn_ip
         run: |
