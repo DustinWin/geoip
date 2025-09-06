@@ -1,8 +1,9 @@
-module github.com/Loyalsoldier/geoip
+module geoip
 
-go 1.24
+go 1.25.1
 
 require (
+	github.com/Loyalsoldier/geoip v0.0.0-20250906005154-53bc174d523e
 	github.com/klauspost/compress v1.18.0
 	github.com/maxmind/mmdbwriter v1.0.0
 	github.com/oschwald/geoip2-golang v1.13.0
@@ -20,9 +21,9 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/miekg/dns v1.1.67 // indirect
 	github.com/sagernet/sing v0.7.6-0.20250825114712-2aeec120ce28 // indirect
-	github.com/spf13/pflag v1.0.9 // indirect
-	github.com/tidwall/match v1.1.1 // indirect
-	github.com/tidwall/pretty v1.2.0 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
+	github.com/tidwall/match v1.2.0 // indirect
+	github.com/tidwall/pretty v1.2.1 // indirect
 	golang.org/x/mod v0.27.0 // indirect
 	golang.org/x/net v0.43.0 // indirect
 	golang.org/x/sync v0.16.0 // indirect
