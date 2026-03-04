@@ -30,19 +30,14 @@ jobs:
         run: |
           echo "update_version=$(date -d '+8 hours' +%Y-%m-%d)" >> ${GITHUB_ENV}
           echo "cn_asn=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN.list" >> $GITHUB_ENV
-          echo "games=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list" >> ${GITHUB_ENV}
           echo "media=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.list" >> ${GITHUB_ENV}
           echo "cn1=https://ispip.clang.cn/all_cn.txt" >> $GITHUB_ENV
           echo "cn2=https://ispip.clang.cn/all_cn_ipv6.txt" >> $GITHUB_ENV
         shell: bash
 
-      - name: Gererate `games`
-        run: |
-          mkdir -p ./data/
-          curl -sSL ${games} | perl -ne '/^(IP-CIDR.*),([^,]+),/ && print "$2\n"' > ./data/games
-
       - name: Gererate `media`
         run: |
+          mkdir -p ./data/
           curl -sSL ${media} | perl -ne '/^(IP-CIDR.*),([^,]+),/ && print "$2\n"' > ./data/media
 
       - name: Generate `cn_ip`
