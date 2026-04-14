@@ -51,10 +51,10 @@ jobs:
           LICENSE_KEY: ${{ secrets.MAXMIND_GEOLITE2_LICENSE }}
         run: |
           mkdir -p ./output/ ./geolite2/
-          curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz" | tar -zx -C ./
-          curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz" | tar -zx -C ./
-          curl -o ./GeoLite2-ASN-CSV.zip -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN-CSV&license_key=${LICENSE_KEY}&suffix=zip"
-          curl -o ./GeoLite2-Country-CSV.zip -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country-CSV&license_key=${LICENSE_KEY}&suffix=zip"
+          curl -sS -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz" | tar -zx -C ./
+          curl -sS -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz" | tar -zx -C ./
+          curl -sS -o ./GeoLite2-ASN-CSV.zip -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN-CSV&license_key=${LICENSE_KEY}&suffix=zip"
+          curl -sS -o ./GeoLite2-Country-CSV.zip -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country-CSV&license_key=${LICENSE_KEY}&suffix=zip"
           unzip ./GeoLite2-ASN-CSV.zip
           unzip ./GeoLite2-Country-CSV.zip
           rm -f ./*.zip
@@ -78,9 +78,9 @@ jobs:
 
       - name: Get geoip-all.dat and Country-all.mmdb relative files
         run: |
-          curl -o ./output/geoip-all.dat -L https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
-          curl -o ./output/Country-all.mmdb -L https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
-          curl -o ./output/Country-ASN-all.mmdb -L https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-asn.mmdb
+          curl -sS -o ./output/geoip-all.dat -L https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
+          curl -sS -o ./output/Country-all.mmdb -L https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
+          curl -sS -o ./output/Country-ASN-all.mmdb -L https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-asn.mmdb
 
       - name: Build metadb files
         run: |

@@ -9,7 +9,7 @@
 ② `geoip,private,🔒 私有网络` & `privateip.list` 源采用 [DustinWin/geoip/config.json](https://github.com/DustinWin/geoip/blob/master/config.json) 中的 `input.type:private`  
 ③ `geoip,cn,🀄️ 国内 IP` & `cnip.list` & `cn-asn.list` 源采用 [17mon/china_ip_list](https://github.com/17mon/china_ip_list)、[gaoyifan/china-operator-ip](https://github.com/gaoyifan/china-operator-ip) 和 [blackmatrix7/ios_rule_script/ChinaASN](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Surge/ChinaASN) 组合  
 ④ `geoip,telegram,📲 电报消息` & `telegramip.list` & `telegram-asn.list` 源采用 [GeoLite2-ASN-CSV/Telegram](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [Telegram IP 段](https://core.telegram.org/resources/cidr.txt)组合  
-⑤ `netflixip.list` & `netflix-asn.list` 源采用 [GeoLite2-ASN-CSV/Netflix](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [blackmatrix7/ios_rule_script/Netflix](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/Netflix)（Netflix_IP.txt）组合  
+⑤ `geoip,netflix,🎥 奈飞视频` & `netflixip.list` & `netflix-asn.list` 源采用 [GeoLite2-ASN-CSV/Netflix](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) 和 [blackmatrix7/ios_rule_script/Netflix](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/Netflix)（Netflix_IP.txt）组合  
 ⑥ `geoip,media,🌍 国外媒体` & `mediaip.list` 源采用 [blackmatrix7/ios_rule_script/GlobalMedia](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/GlobalMedia)（仅 IP）
 # 二、 文件下载
 **规则集文件包含的规则和下载地址对应关系如下表：**
@@ -49,7 +49,7 @@
   </tr>
   <tr>
     <td>geoip.dat</td>
-    <td rowspan="3"><code>private</code>、<code>cn</code>、<code>telegram</code> 和 <code>media</code></td>
+    <td rowspan="3"><code>private</code>、<code>cn</code>、<code>telegram</code>、<code>netflix</code> 和 <code>media</code></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo-geodata/geoip.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.dat">点此下载</a></td>
     <td><a href="https://ghfast.top/https://github.com/DustinWin/geoip/releases/download/mihomo-geodata/geoip.dat">点此下载</a></td>
@@ -68,7 +68,7 @@
   </tr>
   <tr>
     <td>geoip-lite.dat</td>
-    <td rowspan="3"><code>private</code>、<code>cn</code>、<code>telegram</code> 和 <del><code>media</code></del></td>
+    <td rowspan="3"><code>private</code>、<code>cn</code>、<code>telegram</code>、<del><code>netflix</code></del> 和 <del><code>media</code></del></td>
     <td><a href="https://github.com/DustinWin/geoip/releases/download/mihomo-geodata/geoip-lite.dat">点此下载</a></td>
     <td><a href="https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip-lite.dat">点此下载</a></td>
     <td><a href="https://ghfast.top/https://github.com/DustinWin/geoip/releases/download/mihomo-geodata/geoip-lite.dat">点此下载</a></td>
@@ -98,10 +98,10 @@
 ## 1. 导入 Linux 端（以 ShellCrash 导入 geoip.dat、Country.mmdb、geoip.metadb 和 ASN.mmdb 为例）
 连接 SSH 后执行如下命令：
 ```shell
-curl -o $CRASHDIR/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.dat
-curl -o $CRASHDIR/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country.mmdb
-curl -o $CRASHDIR/geoip.metadb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.metadb
-curl -o $CRASHDIR/ASN.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country-ASN.mmdb
+curl -sS -o $CRASHDIR/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.dat
+curl -sS -o $CRASHDIR/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country.mmdb
+curl -sS -o $CRASHDIR/geoip.metadb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.metadb
+curl -sS -o $CRASHDIR/ASN.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country-ASN.mmdb
 $CRASHDIR/start.sh restart
 ```
 ## 2. 导入 Windows 端（以 [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) 导入 geoip.dat、Country.mmdb、geoip.metadb 和 ASN.mmdb 为例）
@@ -110,9 +110,9 @@ $CRASHDIR/start.sh restart
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\geoip.dat -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.dat
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country.mmdb
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\geoip.metadb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.metadb
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\ASN.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country-ASN.mmdb
+curl -sS -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\geoip.dat -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.dat
+curl -sS -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country.mmdb
+curl -sS -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\geoip.metadb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/geoip.metadb
+curl -sS -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\ASN.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/geoip@mihomo-geodata/Country-ASN.mmdb
 pause
 ```
