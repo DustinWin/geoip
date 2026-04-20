@@ -3,7 +3,7 @@ module geoip
 go 1.26.2
 
 require (
-	github.com/Loyalsoldier/geoip v0.0.0-20260414221655-43211abc31dc
+	github.com/Loyalsoldier/geoip v0.0.0-20260419220950-b84c0db4ad72
 	github.com/maxmind/mmdbwriter v1.2.0
 	github.com/oschwald/geoip2-golang/v2 v2.1.0
 	github.com/oschwald/maxminddb-golang/v2 v2.1.1

@@ -1,5 +1,5 @@
-github.com/Loyalsoldier/geoip v0.0.0-20260414221655-43211abc31dc h1:mprUrbaN6oSICihaZbauYZ9Ryz/XHnRr6wM1JKJJ5nU=
-github.com/Loyalsoldier/geoip v0.0.0-20260414221655-43211abc31dc/go.mod h1:sIJE6kax8vMEguaXOvx4mQrwBO29/SWkPz6vomedw7k=
+github.com/Loyalsoldier/geoip v0.0.0-20260419220950-b84c0db4ad72 h1:sCxkO1KB7ZGXkowzr1vQ4LxLwnIHj2Li5PK8E09qOrs=
+github.com/Loyalsoldier/geoip v0.0.0-20260419220950-b84c0db4ad72/go.mod h1:sIJE6kax8vMEguaXOvx4mQrwBO29/SWkPz6vomedw7k=
 github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

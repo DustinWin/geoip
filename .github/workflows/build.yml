@@ -11,6 +11,10 @@ on:
       - "LICENSE"
       - "*.md"
 
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   build:
     name: Build
