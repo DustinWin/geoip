@@ -6,7 +6,7 @@ require (
 	github.com/Loyalsoldier/geoip v0.0.0-20261001013216-424733bd1324
 	github.com/maxmind/mmdbwriter v1.2.0
 	github.com/oschwald/geoip2-golang/v2 v2.4.0
-	github.com/oschwald/maxminddb-golang/v2 v2.7.0
+	github.com/oschwald/maxminddb-golang/v2 v2.8.0
 	github.com/spf13/cobra v1.10.2
 	github.com/tailscale/hujson v0.0.0-20260727124030-b80ff77dac4f
 	github.com/tidwall/gjson v1.20.0
